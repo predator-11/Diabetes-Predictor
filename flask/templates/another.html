@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Predictor</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Custom styles go here */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e5eaf5;
+    }
+    
+    .feature-box {
+      padding: 50px 0;
+      text-align: center;
+    }
+    .feature-box i {
+      font-size: 3rem;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Diabetes Predictor</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="jumbotron">
+          <h1>Diabetes Predictor</h1>
+          <form action="{{ url_for('predict')}}" method="post">
+            <input type="text" name="Glucose Level" class="form-control mb-3" placeholder="Glucose Level" required="required" />
+            <input type="text" name="Insulin" class="form-control mb-3" placeholder="Insulin" required="required" />
+            <input type="text" name="BMI" class="form-control mb-3" placeholder="BMI" required="required" />
+            <input type="text" name="Age" class="form-control mb-3" placeholder="Age" required="required" />
+            <button type="submit" class="btn btn-primary btn-block">Predict</button>
+          </form>
+          <div class="mt-4">
+            {{ prediction_text }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-box">
+          <i class="fas fa-heartbeat"></i>
+          <h3>Early Detection</h3>
+          <p>Our system helps in early detection of diabetes risk factors through advanced analytics.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-box">
+          <i class="fas fa-chart-line"></i>
+          <h3>Predictive Analysis</h3>
+          <p>We utilize machine learning algorithms to predict the likelihood of developing diabetes based on various factors.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-box">
+          <i class="fas fa-file-medical-alt"></i>
+          <h3>Personalized Reports</h3>
+          <p>Receive personalized reports with actionable insights for better diabetes management.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4 mt-5">
+    <div class="container">
+      <p>&copy; DiabetesPredictor Website. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

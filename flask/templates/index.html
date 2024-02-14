@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetes Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+  /* Custom styles go here */
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .jumbotron {
+    background-image: url('https://via.placeholder.com/1500x500'); /* Replace with your image */
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    padding: 100px 0;
+  }
+  .jumbotron h1 {
+    font-size: 3rem;
+  }
+  .feature-box {
+    padding: 50px 0;
+    text-align: center;
+  }
+  .feature-box i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+</style>
+  
+</head>
+
+<body>
+   <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Diabetes Predictor</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+ <div class="login">
+	<h1>Diabetes Predictor</h1>
+
+     
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="Glucose Level" placeholder="Glucose Level" required="required" />
+    	<input type="text" name="Insulin" placeholder="Insulin" required="required" />
+        <input type="text" name="BMI" placeholder="BMI" required="required" />
+        <input type="text" name="Age" placeholder="Age" required="required" />
+		
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+   <!-- Features Section -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="feature-box">
+        <i class="fas fa-heartbeat"></i>
+        <h3>Early Detection</h3>
+        <p>Our system helps in early detection of diabetes risk factors through advanced analytics.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-box">
+        <i class="fas fa-chart-line"></i>
+        <h3>Predictive Analysis</h3>
+        <p>We utilize machine learning algorithms to predict the likelihood of developing diabetes based on various factors.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-box">
+        <i class="fas fa-file-medical-alt"></i>
+        <h3>Personalized Reports</h3>
+        <p>Receive personalized reports with actionable insights for better diabetes management.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4">
+  <div class="container">
+    <p>&copy; 2024 DiabetesPredictor Website. All rights reserved.</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
