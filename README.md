@@ -6,8 +6,8 @@ In this project, our objective is to predict whether the patient has diabetes or
 
 
 # **Screenshot**
-
-![](screenshot.jpg)
+![](Screenshot 2024-02-15 020128.png
+)
 
 # Installation
 
